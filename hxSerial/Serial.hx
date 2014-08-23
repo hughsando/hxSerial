@@ -1,5 +1,9 @@
 package hxSerial;
 
+#if android
+typedef Serial = nme.android.Bluetooth;
+#else
+
 #if neko
 import neko.Lib;
 #elseif cpp
@@ -96,3 +100,5 @@ class Serial {
 	private static var _available = Lib.load("hxSerial","available",1);
 	private static var _breakdown = Lib.load("hxSerial","breakdown",1);
 }
+
+#end // !android
